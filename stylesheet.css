@@ -1,0 +1,246 @@
+*{
+    box-sizing: border-box;
+}
+html,body {
+    height:100%;
+    margin: 0;
+    padding: 0;
+    overflow:hidden;
+}
+body{
+    padding: 0.5% 0.5% 0.5% 0.5%;
+    background-color: black;
+}
+
+
+.container {
+    width:100%; 
+    height: 80%;
+    display: grid;
+    grid-template-columns:repeat(auto-fit, minmax(20%, calc(100%/5)));
+    grid-template-rows: repeat(6 1fr)
+
+}
+.container div {
+    background-color: #0609bd;
+    background-image: radial-gradient(circle, #0609bd, #030BA3);
+    border: 3px solid #000000;
+    display: flex;
+    overflow:hidden;
+    overflow-wrap: break-word;
+    justify-content: center;
+    align-items: center;
+}
+
+h2{
+    text-align: center;
+    font-family:Swiss;
+    font-size: clamp(1.5rem, 4vw, 3rem);
+    color: #ffd000;
+    white-space: normal;
+    text-shadow: 5px 5px #000000;
+}
+.category {
+    margin-bottom: 6%;
+}
+.money:hover {
+    background-color:#030BA3;
+}
+#cname {
+    color: #FFFF;
+    text-shadow:none;
+}
+
+#Hint_Box {
+    background-image: radial-gradient(circle, #0609bd, #030BA3);
+    z-index: 1;
+    top: 1%;
+    height: 80%;
+    width: 99%;
+    position: absolute;
+    justify-content: center;
+    align-items: center;
+    padding: 100px;
+
+}
+#Hint_Text {
+    text-align: center;
+    font-family:ITC_Korinna;
+    font-size: clamp(1.5rem, 4vw, 3rem);
+    color: #FFFF;
+    text-shadow: 5px 5px #000000;
+    white-space: normal;
+}
+#Close_Button {
+    position: absolute;
+    top: 0.5%;
+    left: 1%;
+    background: none;
+    border: none;
+    color: #ffd000;
+    font-family:ITC_Korinna;
+    font-size: 3vw;
+}
+
+#Title_Screen {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 3;
+    width: 100%;
+    height: 100%;
+    background-image: radial-gradient(circle, #0609bd, #030BA3);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.Show_Title_Screen{
+    display: flex;
+}
+#Title_Screen_Text {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+h1 {
+    padding: 0;
+    margin: 0;
+    font-family:Swiss;
+    font-size: clamp(1.5rem, 8vw, 10rem);
+    color: #ffd000;
+    text-shadow: 5px 5px #000000;
+}
+
+#Jeopardy::before {
+  content: "Jeopardy"; /* Same text as the main element */
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1; /* Put the shadow behind the text */
+  color: transparent; /* Make the text transparent so only the shadow shows */
+  text-shadow: 5px 5px #000000;/* Apply the shadow */
+}
+#Jeopardy {
+    position: relative;
+    background: linear-gradient(to bottom,#ffd000,#ffd000,#ffee00);
+    background-clip: text;
+    color: transparent;
+    font-size: clamp(3rem, 10vw, 12rem);
+    font-family:geopardy;
+    text-shadow: none;
+
+}
+
+#Start_Button {
+    border-radius: 10px;
+    background: linear-gradient(to bottom,#ffd000,#ffd000,#ffee00);
+    box-shadow: 5px 5px #000000;
+    border: none;
+    color: #FFF;
+    font-family:ITC_Korinna;
+    font-size: 4vw;
+    padding: 10px;
+    animation: Idle_Button 1s ease-out infinite;
+    pointer-events: auto;
+    transform-origin: center;
+    position: relative;
+    z-index: 4;
+}
+
+#Player_Menu {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 5;
+    width: 40vw;
+    height: 40vh;
+}
+#Player_Menu h1 {
+    text-align: center;
+    font-size: 10vh;  
+    margin-bottom: 20px;
+}
+
+#Total_Clicks {
+    font-size: 11vh;
+    font-family:Swiss;
+    color: #FFF;
+    text-shadow: 5px 5px #000000;
+    margin-left: 20px;
+    margin-right: 20px;
+  
+}
+
+#counter {
+    box-shadow: 5px 5px #000000;
+    font-size: 10vh;
+    background: #ffd000;
+    border-radius: 10px;
+    width: 5vw;
+    border:none;
+    font-family:Swiss;
+    color: #FFF;
+}
+#Title_Screen button:hover {
+    transform: scale(1.1);
+}
+#Title_Screen button {
+    box-shadow: 5px 5px #000000;
+    margin-top: 5vh;
+    font-size: 8vh;
+    background: #ffd000;
+    border-radius: 10px;
+    width: 10vw;
+    border:none;
+    font-family:Swiss;
+    color: #FFF;
+}
+
+.hidden {
+    display: none;
+}
+.Show_No_Animation{
+    display: flex;
+}
+.show{
+    display:flex;
+    z-index: 1;
+    animation: Open_Hints 1s ease-out 1;
+}
+@keyframes Idle_Button{
+    0%{
+        transform:rotate(2deg)
+    }
+    50%{
+        transform:rotate(-2deg)
+    }
+    100%{
+        transform:rotate(2deg)
+    }
+}
+@keyframes Open_Hints {
+    0%{
+        transform: scale(0);
+
+    }
+    100%{
+        transform: scale(1);
+
+    }
+}
+
+@font-face {
+    font-family: ITC_Korinna;
+    src: url(fonts/ITC_Korinna.ttf);
+}
+@font-face {
+    font-family: Geopardy;
+    src: url(fonts/Geoparody.otf);
+}
+@font-face {
+    font-family: Swiss;
+    src: url(fonts/Swiss.otf);
+}

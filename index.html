@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang ="en">
+    <head>
+        <meta charset = "UTF-8">
+        <meta name = "viewport" content = "width=device-width, initial-scale=1.0">
+        <title>Jeopardy Home Page</title>
+        <link href = "stylesheet.css" rel = "stylesheet">
+    </head>
+    <body>
+        <div class = "container">
+            <div class = 'category'> <h2 id = "cname">PEOPLE</h2> </div>
+            <div class = 'category'> <h2 id = "cname">HISTORY</h2> </div>
+            <div class = 'category'> <h2 id = "cname">INVENTORS</h2></div>
+            <div class = 'category'> <h2 id = "cname">MUSIC</h2></div>
+            <div class = 'category'> <h2 id = "cname">NEW YORK</h2></div>
+
+
+            <div class = "money" onclick = "Hint_Box_Text(Hints_200, Answers_200, 0)" id = "money2001"><h2> $200 </h2></div>
+            <div class = "money" onclick = "Hint_Box_Text(Hints_200, Answers_200, 1)"><h2> $200 </h2></div>
+            <div class = "money" onclick = "Hint_Box_Text(Hints_200, Answers_200, 2)"><h2> $200 </h2></div>
+            <div class = "money" onclick = "Hint_Box_Text(Hints_200, Answers_200, 3)"><h2> $200 </h2></div>
+            <div class = "money" onclick = "Hint_Box_Text(Hints_200, Answers_200, 4)"><h2> $200 </h2></div>
+            
+            <div class = "money" onclick = "Hint_Box_Text(Hints_400, Answers_400, 0)"><h2> $400 </h2></div>
+            <div class = "money" onclick = "Hint_Box_Text(Hints_400, Answers_400, 1)"><h2> $400 </h2></div>
+            <div class = "money" onclick = "Hint_Box_Text(Hints_400, Answers_400, 2)"><h2> $400 </h2></div>
+            <div class = "money" onclick = "Hint_Box_Text(Hints_400, Answers_400, 3)"><h2> $400 </h2></div>
+            <div class = "money" onclick = "Hint_Box_Text(Hints_400, Answers_400, 4)"><h2> $400 </h2></div>
+            
+            <div class = "money" onclick = "Hint_Box_Text(Hints_600, Answers_600, 0)"><h2> $600 </h2></div>
+            <div class = "money" onclick = "Hint_Box_Text(Hints_600, Answers_600, 1)"><h2> $600 </h2></div>
+            <div class = "money" onclick = "Hint_Box_Text(Hints_600, Answers_600, 2)"><h2> $600 </h2></div>
+            <div class = "money" onclick = "Hint_Box_Text(Hints_600, Answers_600, 3)"><h2> $600 </h2></div>
+            <div class = "money" onclick = "Hint_Box_Text(Hints_600, Answers_600, 4)"><h2> $600 </h2></div>
+           
+            <div class = "money" onclick = "Hint_Box_Text(Hints_800, Answers_800, 0)"><h2> $800 </h2></div>
+            <div class = "money" onclick = "Hint_Box_Text(Hints_800, Answers_800, 1)"><h2> $800 </h2></div>
+            <div class = "money" onclick = "Hint_Box_Text(Hints_800, Answers_800, 2)"><h2> $800 </h2></div>
+            <div class = "money" onclick = "Hint_Box_Text(Hints_800, Answers_800, 3)"><h2> $800 </h2></div>
+            <div class = "money" onclick = "Hint_Box_Text(Hints_800, Answers_800, 4)"><h2> $800 </h2></div>
+            
+            <div class = "money" onclick = "Hint_Box_Text(Hints_1000, Answers_1000, 0)"><h2> $1000 </h2></div>
+            <div class = "money" onclick = "Hint_Box_Text(Hints_1000, Answers_1000, 1)"><h2> $1000 </h2></div>
+            <div class = "money" onclick = "Hint_Box_Text(Hints_1000, Answers_1000, 2)"><h2> $1000 </h2></div>
+            <div class = "money" onclick = "Hint_Box_Text(Hints_1000, Answers_1000, 3)"><h2> $1000 </h2></div>
+            <div class = "money" onclick = "Hint_Box_Text(Hints_1000, Answers_1000, 4)"><h2> $1000 </h2></div>
+
+        </div>
+        <div id = "Hint_Box" class = "hidden">
+                <button id = "Close_Button" onclick = "Close_Hint()">X</button>
+                <div> <h1 id = "Hint_Text"></h1></div>
+        </div>
+        <div id = "Title_Screen" class = "Show_Title_Screen">
+            <div id = "Title_Screen_Text" class = "Show_No_Animation hidden">
+                <h1> Welcome to Yacc</h1>
+                <h1 id = "Jeopardy"> Jeopardy</h1>
+                <button id = "Start_Button" onclick = "Menu_Start()"> Start </button>
+            </div>
+
+            <div id = "Player_Menu" class = "hidden">
+                <h1> How Many Players are playing?</h1>
+                <div>
+                    <button id = "counter" onclick = "Total_Click(1)"> + </button>
+                    <span id = "Total_Clicks"> 0 </span>
+                    <button id = "counter" onclick = "Total_Click(-1)"> - </button>
+                </div>
+                <button onclick = "Close_Screen()"> Let's Play! </button>
+             </div>
+        </div>
+
+        
+    </body>
+     <script src = "script.js"></script>
+</html>
