@@ -1,6 +1,8 @@
 
 var Hint_Text = document.getElementById("Hint_Text");
 var Hint_Box = document.getElementById('Hint_Box');
+let Player_Count = 0;
+let points = 0;
 Hints_200 = ["Most prominent leader in the Civil Rights Movement ", "Nationwide protests that happened early 2020", "Found over 300 ways to use peanuts", "Rose to fame in the 1930s and is called the 'Queen of Jazz'", "Famous musical about Alicia Key's life"];
 Answers_200 = ["Martin Luther King Jr", "George Floyd Protests", "George Washington Carver", "Ella Fitzgerald", "Hell's Kitchen Musical"];
 Hints_400 = ["Co-Founder of STAR, participated in the Stonewall Riots, and the P in her name stands for Pay it No Mind ", "Boycott in Mongomery, Alabama that involved not getting up and moving to the back of the bus", "Inventor of the 3 position traffic signal", "Best known for the hit song 'Respect' and is known as the 'Queen of Soul'", "Bronx is the home of this music genre that was created by DJ Kool Herc"];
@@ -12,6 +14,20 @@ Answers_800 = ["Bessie Coleman", "Nat Turner's Revolt", "John F. Pickering", "Ho
 Hints_1000 = ["First Black Child to enter an all-white school in the south", "Name that refers to a town in Tulsa, Oklahoma in the nearly 20th century that was destoryed in the Tulsa Race Massacre", "Inventor of the methods that allowed for the process, preservation, and storing of blood plasma during WWII and is also known as the 'Father of the Blood Bank'", "This genre of music origniated in the late 19th and early 20th centuries in Methodist and Basptist churches in the south after abolition of slavery", "Town that was located from 81st to 89th street that is now Central Park which homed the Episcopal Zion Church — the wealthiest and largest church for African Americans"];
 Answers_1000 = ["Rudgy Bridges", "Black Wall Street", "Dr. Charles Drew", "Rural Gospal Music", "Seneca Village"];
 
+
+const Player_Icons_List = ["icons/cow_1.png", "icons/cow_2.png", "icons/cow_3.png", "icons/cow_4.png", "icons/cow_5.png", "icons/cow_6.png", "icons/cow_7.png"];
+
+function Get_Random() {
+    const random_index = Math.floor(Math.random() * Player_Icons_List.length);
+
+    if(Player_Icons_List.length > 0){
+        selected_image = Player_Icons_List.splice (random_index,1);  
+        return selected_image;
+    } else {
+        Get_Random();
+    }
+
+}
 document.querySelectorAll(".container").forEach(function(container) {
   container.addEventListener("click", function(event) {
     event.target.closest(".money").style.backgroundColor = "#020991";
@@ -39,9 +55,7 @@ function Hint_Box_Text(Hint_Number, Answer_Number, Category_Number) {
 function Close_Hint() {
     Hint_Box.classList.toggle("show");
 }
-function Close_Screen() {
-    document.getElementById('Title_Screen').classList.toggle("hidden");
-}
+
 
 function Menu_Start() {
     var Start_Menu_text = document.getElementById('Title_Screen_Text');
@@ -59,6 +73,41 @@ function Total_Click(click) {
         Total_Clicks.innerText = 0;
     } else if (Sum_Value > 4) {
         Total_Clicks.innerText = 4;
+        Sum_Value = 4;
 
     }
+
+    Player_Count = Sum_Value;
+}
+function Close_Screen() {
+    document.getElementById('Title_Screen').classList.toggle("hidden");
+    const Player_Card_Holder = document.getElementById('Player_Card_Container');
+    const template = document.getElementById('Player_Card_Template');
+    const Template_ID = template.id;
+
+    template.removeAttribute('id');
+
+    for (let i = 0; i < Player_Count; i++ ){ 
+        let num = i + 1;
+        const content = template.content.cloneNode(true);
+        template.id = Template_ID;
+        const Player_Icon = content.querySelector('#Player_Icon');
+        const Player_Number = content.querySelector('#Player_Name');
+        //const Point_Counter = content.querySelector('#Player_Points');
+        const Player_Card_Number = content.querySelector('#Player_Card');
+
+         //Point_Counter.id = 'Player_' + num.toString() + '_Card';
+        if(Player_Icon){
+            Player_Icon.src = Get_Random();
+        }
+        if(Player_Number) {
+            let num = i + 1;
+            Player_Number.innerText = 'Player ' + num.toString();
+        }
+        //if(Point_Counter) {
+         //   Point_Counter.innerText = '0';
+        //}
+        Player_Card_Holder.appendChild(content) 
+    }
+
 }

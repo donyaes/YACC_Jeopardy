@@ -50,7 +50,7 @@
                 <button id = "Close_Button" onclick = "Close_Hint()">X</button>
                 <div> <h1 id = "Hint_Text"></h1></div>
         </div>
-        <div id = "Title_Screen" class = "Show_Title_Screen">
+      <div id = "Title_Screen" class = "Show_Title_Screen">
             <div id = "Title_Screen_Text" class = "Show_No_Animation hidden">
                 <h1> Welcome to Yacc</h1>
                 <h1 id = "Jeopardy"> Jeopardy</h1>
@@ -67,8 +67,19 @@
                 <button onclick = "Close_Screen()"> Let's Play! </button>
              </div>
         </div>
-
-        
+        <div id = 'Player_Card_Container'> </div>
+        <template id = "Player_Card_Template">
+            <div id = Player_Card>
+                <img id = "Player_Icon">
+                <div id = "Text_Container">
+                    <h1 id = Player_Name></h1>
+                    <!--<div id = "Score_Container">
+                        <h2 id = Player_Points class = "Point_Text">1000</h2>
+                        <button id = "Add_Point" onclick = ""> + </button>
+                    </div> -->
+                </div>
+            </div>
+        </template>
     </body>
      <script src = "script.js"></script>
 </html>
