@@ -71,9 +71,9 @@ function Total_Click(click) {
 
     if(Sum_Value < 0) {
         Total_Clicks.innerText = 0;
-    } else if (Sum_Value > 4) {
+    } else if (Sum_Value > 7) {
         Total_Clicks.innerText = 4;
-        Sum_Value = 4;
+        Sum_Value = 7;
 
     }
 
@@ -109,5 +109,6 @@ function Close_Screen() {
         //}
         Player_Card_Holder.appendChild(content) 
     }
+
 
 }
