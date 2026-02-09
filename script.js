@@ -85,28 +85,106 @@ function Hint_Box_Text(Hint_Number, Answer_Number, Category_Number, Point_Amount
             Background_Theme_Music.play();
         }
     });
+
+    // Player 1
     document.addEventListener("keydown", function(event) {
-    if(event.keycode === 49 || event.key === "1"){
-        Player_1 = document.getElementById('Player_1_Card');
-        var imageElement = Player_1.querySelector('img'); 
-        if (imageElement) {
-            var imageSource = imageElement.src;
-            imageElement.src = imageSource.slice(0, -4) + "_correct.png";
-            console.log("Current image source:", imageSource);
-        }
+        if(event.keycode === 49 || event.key === "1"){
+            Player_1 = document.getElementById('Player_1_Card');
+            
+            if (event.repeat) return;
+            var imageElement = Player_1.querySelector('img'); 
+            if (imageElement) {
+                if (!imageElement.src.includes("_correct.png")){
+                  imageElement.src = imageElement.src.replace(".png", "_correct.png");  
+                }
+                
+            }
+            const Point_Counter = Player_1.querySelector('.Point_Text');
+            let score = parseInt(Point_Counter.innerText);
+            score += points;
+            Point_Counter.innerText = score;
+            points = 0;
         }
     });
     document.addEventListener("keyup", function(event) {
-    if(event.keycode === 49 || event.key === "1"){
-        Player_1 = document.getElementById('Player_1_Card');
-        var imageElement = Player_1.querySelector('img'); 
-        if (imageElement) {
-            var imageSource = imageElement.src;
-            imageElement.src = imageSource.slice(0, -12) + ".png";
-            console.log("Current image source:", imageSource);
+        if(event.keycode === 49 || event.key === "1"){
+            Player_1 = document.getElementById('Player_1_Card');
+            const imageElement = Player_1.querySelector('img'); 
+            if (imageElement) {
+                imageElement.src = imageElement.src.replace("_correct.png", ".png");
+            }
         }
-    }
-});
+    });
+
+    // Player 2
+        document.addEventListener("keydown", function(event) {
+        if(event.keycode === 50 || event.key === "2"){
+            Player_1 = document.getElementById('Player_2_Card');
+            if (event.repeat) { return }
+            var imageElement = Player_1.querySelector('img'); 
+            if (imageElement) {
+                   if (!imageElement.src.includes("_correct.png")){
+                  imageElement.src = imageElement.src.replace(".png", "_correct.png");  
+                }
+            }
+        }
+    });
+    document.addEventListener("keyup", function(event) {
+        if(event.keycode === 50 || event.key === "2"){
+            Player_1 = document.getElementById('Player_2_Card');
+            var imageElement = Player_1.querySelector('img'); 
+            if (imageElement) {
+                imageElement.src = imageElement.src.replace("_correct.png", ".png");
+            }
+        }
+    });
+
+        // Player 3
+        document.addEventListener("keydown", function(event) {
+        if(event.keycode === 51 || event.key === "3"){
+            Player_1 = document.getElementById('Player_3_Card');
+            if (event.repeat) { return }
+            var imageElement = Player_1.querySelector('img'); 
+            if (imageElement) {
+                if (!imageElement.src.includes("_correct.png")){
+                  imageElement.src = imageElement.src.replace(".png", "_correct.png");  
+                }
+
+            }
+        }
+    });
+    document.addEventListener("keyup", function(event) {
+        if(event.keycode === 51 || event.key === "3"){
+            Player_1 = document.getElementById('Player_3_Card');
+            var imageElement = Player_1.querySelector('img'); 
+            if (imageElement) {
+                imageElement.src = imageElement.src.replace("_correct.png", ".png");
+            }
+        }
+    });
+
+// Player 4
+        document.addEventListener("keydown", function(event) {
+        if(event.keycode === 52 || event.key === "4"){
+            Player_1 = document.getElementById('Player_4_Card');
+            if (event.repeat) { return }
+            var imageElement = Player_1.querySelector('img'); 
+            if (imageElement) {
+                if (!imageElement.src.includes("_correct.png")){
+                  imageElement.src = imageElement.src.replace(".png", "_correct.png");  
+                }
+            }
+        }
+    });
+    document.addEventListener("keyup", function(event) {
+        if(event.keycode === 52 || event.key === "4"){
+            Player_1 = document.getElementById('Player_4_Card');
+            var imageElement = Player_1.querySelector('img'); 
+            if (imageElement) {
+                imageElement.src = imageElement.src.replace("_correct.png", ".png");
+            }
+        }
+    });
 
 }
 // Close the Hint Box
@@ -172,12 +250,6 @@ function Close_Screen() {
             Point_Counter.innerText = '0';
         }
 
-        Add_Button.addEventListener("mousedown", () => {
-            let score = parseInt(Point_Counter.innerText);
-            score += points;
-            Point_Counter.innerText = score;
-            points = 0;
-        });
         Player_Card_Holder.appendChild(content);
     }
 
