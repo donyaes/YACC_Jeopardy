@@ -85,10 +85,30 @@ function Hint_Box_Text(Hint_Number, Answer_Number, Category_Number, Point_Amount
             Background_Theme_Music.play();
         }
     });
-    
+    document.addEventListener("keydown", function(event) {
+    if(event.keycode === 49 || event.key === "1"){
+        Player_1 = document.getElementById('Player_1_Card');
+        var imageElement = Player_1.querySelector('img'); 
+        if (imageElement) {
+            var imageSource = imageElement.src;
+            imageElement.src = imageSource.slice(0, -4) + "_correct.png";
+            console.log("Current image source:", imageSource);
+        }
+        }
+    });
+    document.addEventListener("keyup", function(event) {
+    if(event.keycode === 49 || event.key === "1"){
+        Player_1 = document.getElementById('Player_1_Card');
+        var imageElement = Player_1.querySelector('img'); 
+        if (imageElement) {
+            var imageSource = imageElement.src;
+            imageElement.src = imageSource.slice(0, -12) + ".png";
+            console.log("Current image source:", imageSource);
+        }
+    }
+});
 
 }
-
 // Close the Hint Box
 function Close_Hint() {
     Hint_Box.classList.toggle("show");
@@ -137,8 +157,10 @@ function Close_Screen() {
         const Player_Number = content.querySelector('.Player_Name');
         const Point_Counter = content.querySelector('.Point_Text');
         const Add_Button = content.querySelector(".Add_Point");
+        const Player_Card = content.querySelector(".Player_Card");
 
-         Point_Counter.id = 'Player_' + num.toString() + '_Card';
+        Player_Card.id = 'Player_' + num.toString() + '_Card';
+        Point_Counter.id = 'Player_' + num.toString() + '_Score';
         if(Player_Icon){
             Player_Icon.src = Get_Random();
         }
